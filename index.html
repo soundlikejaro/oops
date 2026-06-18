@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="oops. — Accidentally brilliant design & digital experiences. A creative agency that is bold, raw, and authentic.">
+  <title>oops. — Accidentally Brilliant Creative Agency</title>
+  
+  <!-- Google Fonts: Syne for display, Space Grotesk for body -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Syne:wght@700..800&display=swap" rel="stylesheet">
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <!-- SVG Grain Noise Filter Overlay -->
+  <svg class="svg-grain-source" xmlns="http://www.w3.org/2000/svg" style="position: absolute; width: 0; height: 0; overflow: hidden;">
+    <filter id="grain-noise">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" stitchTiles="stitch" result="noise" />
+      <feColorMatrix type="matrix" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.15 0" />
+      <feComposite operator="in" in2="SourceGraphic" result="monoNoise" />
+      <feBlend mode="multiply" in="SourceGraphic" in2="monoNoise" />
+    </filter>
+  </svg>
+  
+  <!-- Global Noise Overlay -->
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <!-- Translucent Fixed Header -->
+  <header class="header" id="main-header">
+    <div class="header-container">
+      <a href="#" class="brand-logo" id="logo-link">oops<span class="accent-dot">.</span></a>
+      <nav class="nav-menu" id="main-nav" aria-label="Main Navigation">
+        <a href="#work" class="nav-link">Work</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#contact" class="nav-link nav-btn">Start a<br class="mobile-only"> Project</a>
+      </nav>
+      <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle Menu" aria-expanded="false" aria-controls="main-nav">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    
+    <!-- Hero Scroll Container for Scrollytelling Reveal -->
+    <div class="hero-scroll-container">
+      <div id="video-reveal-anchor" class="video-reveal-anchor"></div>
+      <section class="hero-section" id="home">
+        <div class="video-background-container">
+          <!-- Loop video - Abstract visual stream -->
+          <video class="bg-video" id="hero-video" autoplay loop muted playsinline poster="assets/unstuck.png">
+            <source src="https://player.vimeo.com/external/371433846.sd.mp4?s=236da2f3c054273b1a209022b666a30fcfcfd2c2&profile_id=139&oauth2_token_id=57447761" type="video/mp4">
+            <!-- Fallback loop from pexels in case the first is offline -->
+            <source src="https://videos.pexels.com/video-files/853889/853889-hd_1920_1080_25fps.mp4" type="video/mp4">
+          </video>
+          <div class="video-overlay" id="hero-overlay"></div>
+        </div>
+        
+        <div class="hero-content">
+          <div class="hero-text-wrapper">
+            <h1 class="hero-title">oops<span class="text-accent">.</span></h1>
+            <p class="hero-tagline">Accidentally brilliant design & digital agency.</p>
+          </div>
+          
+          <div class="hero-bottom-bar">
+            <!-- Sound Toggle Button -->
+            <button class="sound-toggle" id="sound-toggle" aria-label="Unmute Background Video" title="Unmute Video">
+              <!-- Mute Icon -->
+              <svg class="sound-icon sound-muted-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11 5L6 9H2V15H6L11 19V5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M23 9L17 15M17 9L23 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <!-- Unmute Icon (Hidden initially) -->
+              <svg class="sound-icon sound-playing-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                <path d="M11 5L6 9H2V15H6L11 19V5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M15.54 8.46C16.4774 9.39764 17.004 10.6692 17.004 12C17.004 13.3308 16.4774 14.6024 15.54 15.54" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M19.07 4.93C20.9447 6.80529 21.9979 9.34839 21.9979 12C21.9979 14.6516 20.9447 17.1947 19.07 19.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            
+            <div class="hero-scroll-hint">
+              <a href="#video-reveal-anchor" class="scroll-arrow-btn" aria-label="Scroll to video">
+                <span>Scroll</span>
+                <svg class="arrow-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Work Section -->
+    <section class="work-section" id="work">
+      <div class="section-container">
+        <header class="section-header">
+          <span class="section-label">01 / RECENT WORK</span>
+          <h2 class="section-title">Selected Projects</h2>
+        </header>
+
+        <div class="projects-list">
+          
+          <!-- Project 01: UNSTUCK -->
+          <article class="project-card" id="project-unstuck">
+            <div class="project-image-wrapper">
+              <img src="assets/unstuck.png" alt="UNSTUCK branding project mockup" class="project-img" loading="lazy">
+            </div>
+            <div class="project-info">
+              <div class="project-num">01</div>
+              <h3 class="project-name">UNSTUCK</h3>
+              <p class="project-category">Branding & Fluid Digital Identity</p>
+              <p class="project-description">
+                An experimental, fluid design system for a restless generation. UNSTUCK challenges standard grid constraints with dynamic, user-steered content layouts.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Identity</span>
+                <span class="tag">UI/UX</span>
+                <span class="tag">WebGL</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 02: REVERB -->
+          <article class="project-card" id="project-reverb">
+            <div class="project-image-wrapper">
+              <img src="assets/reverb.png" alt="REVERB sound app platform design mockup" class="project-img" loading="lazy">
+            </div>
+            <div class="project-info">
+              <div class="project-num">02</div>
+              <h3 class="project-name">REVERB</h3>
+              <p class="project-category">Identity & Campaign Direction</p>
+              <p class="project-description">
+                A bold, sound-reactive identity for an immersive audio platform. Rough textures and high-contrast visuals echo the raw frequencies of the underground scene.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Campaign</span>
+                <span class="tag">Motion</span>
+                <span class="tag">App Design</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 03: ANOMALY -->
+          <article class="project-card" id="project-anomaly">
+            <div class="project-image-wrapper">
+              <img src="assets/anomaly.png" alt="ANOMALY fashion tech platform mockup" class="project-img" loading="lazy">
+            </div>
+            <div class="project-info">
+              <div class="project-num">03</div>
+              <h3 class="project-name">ANOMALY</h3>
+              <p class="project-category">Brutal E-Commerce & Creative Direction</p>
+              <p class="project-description">
+                High-concept clothing requires a high-concept storefront. ANOMALY blends streetwear lookbooks with brutalist UI, creating a retail space that feels alive and rough around the edges.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Creative Direction</span>
+                <span class="tag">Web Dev</span>
+                <span class="tag">Typography</span>
+              </div>
+            </div>
+          </article>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+      <div class="section-container">
+        <header class="section-header">
+          <span class="section-label">02 / WHO WE ARE</span>
+          <h2 class="section-title">Accidentally Brilliant</h2>
+        </header>
+
+        <div class="about-grid">
+          <div class="about-philosophy">
+            <h3 class="about-lead">
+              We make bold decisions and we aren't afraid of being rough around the edges. We believe true connection lives in the imperfections.
+            </h3>
+            <p class="about-paragraph">
+              In a digital world obsessed with sterile templates and pixel-perfect predictability, we lean into the unexpected. The creative spark doesn't live in standard frameworks; it lives in the anomalies. 
+            </p>
+            <p class="about-paragraph">
+              That moment when a misalignment creates a new layout, when a color clash feels electrifying, when a bug becomes the main feature? That's our sweet spot. We embrace the "oops" because that is where breakthrough happens. We build digital products, campaigns, and experiences that reach out, grab attention, and connect authentically with real humans.
+            </p>
+          </div>
+          
+          <div class="about-stats-container">
+            <div class="stat-card">
+              <span class="stat-number">15+</span>
+              <span class="stat-label">Happy Accidents</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">48</span>
+              <span class="stat-label">Awards Won</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">0</span>
+              <span class="stat-label">Regrets</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">Authentic</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-section" id="contact">
+      <div class="section-container">
+        <div class="contact-grid">
+          
+          <div class="contact-details">
+            <span class="section-label">03 / LET'S CONNECT</span>
+            <h2 class="contact-title">Let's make a mistake<br>together.</h2>
+            <p class="contact-desc">
+              Have an idea that feels a bit too crazy, or want to challenge the status quo? Reach out. Let's build something brilliant.
+            </p>
+            
+            <div class="contact-info-list">
+              <div class="info-item">
+                <span class="info-label">Say Hello</span>
+                <a href="mailto:hello@oops.agency" class="info-link">hello@oops.agency</a>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Visit Us</span>
+                <span class="info-text">88 Anomaly Street, Shoreditch<br>London, EC1A 2OP</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="contact-form-container">
+            <!-- Form uses modern validate-input-after-interaction standard -->
+            <form class="contact-form" id="project-form" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="user-name">Your Name</label>
+                  <input type="text" id="user-name" name="name" required placeholder="E.g., Alex Johnson" autocomplete="name">
+                  <span class="error-msg">❌ Please tell us your name.</span>
+                </div>
+              </div>
+              
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="user-email">Email Address</label>
+                  <span id="email-hint" class="field-hint">Format: you@example.com</span>
+                  <input type="email" id="user-email" name="email" required placeholder="you@example.com" autocomplete="email" aria-describedby="email-hint">
+                  <span class="error-msg">❌ Please enter a valid email address.</span>
+                </div>
+              </div>
+              
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="user-project">Project Brief</label>
+                  <textarea id="user-project" name="project" required minlength="15" placeholder="Tell us about the project, the goals, and why you want to work with us..." rows="4"></textarea>
+                  <span class="error-msg">❌ Please write a brief description (min 15 chars).</span>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="user-budget">Approximate Budget</label>
+                  <select id="user-budget" name="budget" required>
+                    <option value="" disabled selected>Select a range...</option>
+                    <option value="15k-30k">£15k — £30k</option>
+                    <option value="30k-60k">£30k — £60k</option>
+                    <option value="60k-100k">£60k — £100k</option>
+                    <option value="100k+">£100k+</option>
+                  </select>
+                  <span class="error-msg">❌ Please select your budget range.</span>
+                </div>
+              </div>
+              
+              <button type="submit" class="submit-btn" id="form-submit-btn">
+                <span>Send Brief</span>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M4.16669 10H15.8334M15.8334 10L10.8334 5M15.8334 10L10.8334 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+
+              <!-- Success Alert (Visually hidden by default) -->
+              <div class="form-success-alert" id="form-success" role="alert" aria-hidden="true">
+                <span class="success-icon">✓</span>
+                <div class="success-text">
+                  <h3>Brief Received!</h3>
+                  <p>We'll look over your brief and get back to you within 24 hours. Let's make something brilliant.</p>
+                </div>
+              </div>
+            </form>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-top">
+        <span class="footer-logo">oops.</span>
+        <ul class="footer-links">
+          <li><a href="#work">Work</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-bottom">
+        <p class="copyright">&copy; 2026 oops. agency. All rights reserved. Accidentally brilliant, intentionally built.</p>
+        <a href="#home" class="back-to-top-link">
+          Back to Top
+          <svg class="back-to-top-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <ul class="social-links">
+          <li><a href="#" class="social-link" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="#" class="social-link" target="_blank" rel="noopener">Read.cv</a></li>
+          <li><a href="#" class="social-link" target="_blank" rel="noopener">Twitter</a></li>
+          <li><a href="#" class="social-link" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Core Javascript File -->
+  <script src="main.js"></script>
+</body>
+</html>
